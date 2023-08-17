@@ -28,20 +28,20 @@ void TencentAIArtV3::initTTI_Or_ITI(const FPromptTTIConfig& PromptTTIConfig)
 	const FString TTI_Styles = UTencentConfig::ConvStr_EStylesTTI(PromptTTIConfig.Styles);
 	const FString TTI_Resolution = UTencentConfig::ConvStr_EResolution(PromptTTIConfig.Resolution);
 	const int TTI_LogoAdd = UTencentConfig::ConvStr_ELogoAdd(PromptTTIConfig.LogoAdd);
-	RspImageType = PromptTTIConfig.RspImgType;
-	const FString TTI_RspImgType = UTencentConfig::ConvStr_ERspImgType(RspImageType);
+	ReqImageType = PromptTTIConfig.ReqImgType;
+	const FString TTI_ReqImgType = UTencentConfig::ConvStr_ERspImgType(ReqImageType);
 	const FString Text =
 		FString::Printf(
 			TEXT("{\"Prompt\":\"%s\",\"Styles\":[\"%s\"],\"ResultConfig\":{\"Resolution\":\"%s\"},\"LogoAdd\":%d,\"RspImgType\":\"%s\"}"),
-			*TTI_Prompt, *TTI_Styles, *TTI_Resolution, TTI_LogoAdd, *TTI_RspImgType);
+			*TTI_Prompt, *TTI_Styles, *TTI_Resolution, TTI_LogoAdd, *TTI_ReqImgType);
 	
 	payload = string(TCHAR_TO_UTF8(*Text));
 	UE_LOG(LogTencentAIArt, Warning, TEXT("payload = %s"), *FString(UTF8_TO_TCHAR(payload.c_str())));
 }
 
-void TencentAIArtV3::getRspImageType(ERspImgType& RspImgType) const
+void TencentAIArtV3::getReqImageType(EReqImgType& ReqImgType) const
 {
-	RspImgType = RspImageType;
+	ReqImgType = ReqImageType;
 }
 
 string TencentAIArtV3::get_data(const int64_t& Timestamp)

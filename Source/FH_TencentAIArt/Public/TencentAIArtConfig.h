@@ -93,10 +93,10 @@ enum class ELogoAdd : uint8
 
 // RspImgType
 UENUM(BlueprintType)
-enum class ERspImgType : uint8
+enum class EReqImgType : uint8
 {
-	ERspType_Base64		UMETA(Displayname="base64"),
-	ERspType_URL		UMETA(Displayname="url")
+	EReqType_Base64		UMETA(Displayname="base64"),
+	EReqType_URL		UMETA(Displayname="url")
 };
 
 // Struct
@@ -142,13 +142,13 @@ struct FPromptTTIConfig
 	UPROPERTY(BlueprintReadWrite, Category="FH|TencentAIArt|Prompt")
 	ELogoAdd LogoAdd;
 	UPROPERTY(BlueprintReadWrite, Category="FH|TencentAIArt|Prompt")
-	ERspImgType RspImgType;
+	EReqImgType ReqImgType;
 
 	FPromptTTIConfig() :
 		Styles(EStylesTTI::ESTTI_201),
 		Resolution(EResolution::ER_768_768),
 		LogoAdd(ELogoAdd::ELA_NoAdd),
-		RspImgType(ERspImgType::ERspType_Base64){}
+		ReqImgType(EReqImgType::EReqType_Base64){}
 };
 
 UCLASS(BlueprintType)
@@ -314,13 +314,13 @@ public:
 	}
 
 	UFUNCTION(BlueprintCallable, Category="FH|Tencent|AI Art|Conv")
-	static FORCEINLINE FString ConvStr_ERspImgType(const ERspImgType& RspImgType)
+	static FORCEINLINE FString ConvStr_ERspImgType(const EReqImgType& ReqImgType)
 	{
 		auto Result =
-			RspImgType ==
-				ERspImgType::ERspType_Base64 ? FString("base64") :
-			RspImgType ==
-				ERspImgType::ERspType_URL ? FString("url") : FString("base64");
+			ReqImgType ==
+				EReqImgType::EReqType_Base64 ? FString("base64") :
+			ReqImgType ==
+				EReqImgType::EReqType_URL ? FString("url") : FString("base64");
 		return Result;
 	}
 	

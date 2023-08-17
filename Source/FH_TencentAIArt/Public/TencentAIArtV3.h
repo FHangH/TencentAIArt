@@ -47,7 +47,7 @@ private:
     string signature;
     string authorization;
 
-	ERspImgType RspImageType;
+	EReqImgType ReqImageType;
 
 public:
 	static TencentAIArtV3& Get()
@@ -58,7 +58,7 @@ public:
 
 	void initConfig(const FTencentAIArtConfig& AIArtConfig);
 	void initTTI_Or_ITI(const FPromptTTIConfig& PromptTTIConfig);
-	void getRspImageType(ERspImgType& RspImgType) const;
+	void getReqImageType(EReqImgType& ReqImgType) const;
 	
 	string get_data(const int64_t &timestamp);
 

@@ -28,9 +28,9 @@ UTexture2D* UTencentAiArt::Base64ToTexture2D(const FString& Base64Str)
 	return UTencentConfig::Base64ToTexture2D(Base64Str);
 }
 
-void UTencentAiArt::GetRespImageType(ERspImgType& RspImgType)
+void UTencentAiArt::GetRequestImageType(EReqImgType& ReqImgType)
 {
-	TencentAIArtV3::Get().getRspImageType(RspImgType);
+	TencentAIArtV3::Get().getReqImageType(ReqImgType);
 }
 
 void UTencentAiArt::OnResultImageByRequest()

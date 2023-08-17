@@ -34,7 +34,7 @@ public:
 	static UTexture2D* Base64ToTexture2D(const FString& Base64Str);
 
 	UFUNCTION(BlueprintPure, Category="FH|Tencent|AI Art")
-	static void GetRespImageType(ERspImgType& RspImgType);
+	static void GetRequestImageType(EReqImgType& ReqImgType);
 	
 	UFUNCTION(BlueprintCallable, Category="FH|Tencent|AI Art")
 	static void CancelRequestImage();
